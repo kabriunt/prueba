@@ -44,7 +44,7 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 
 	@Override
-	public RestaurantDto findOne(Integer id) {
+	public RestaurantDto findById(Integer id) {
 		Restaurant restaurant = restaurantDao.findOne(id);
 		return transform(restaurant);
 	}

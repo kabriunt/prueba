@@ -7,7 +7,7 @@ public interface RestaurantService {
 	
 	List<RestaurantDto> findAll();
 	
-	RestaurantDto findOne(Integer id);
+	RestaurantDto findById(Integer id);
 	
 	RestaurantDto create(RestaurantDto restaurantDto);
 	
