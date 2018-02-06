@@ -31,7 +31,7 @@ public class Employee implements Serializable {
 	
 	private String phone;
 	
-	
+	// Relación muchos empleados pertenecen a un único restaurante
 	@ManyToOne (fetch = FetchType.LAZY)
 	private Restaurant restaurant;
 	
