@@ -96,5 +96,5 @@ public class ProductServiceImpl implements ProductService{
 		dto.setIdSales(idSales);
 
 		return dto;
-	}
+	} 
 }
