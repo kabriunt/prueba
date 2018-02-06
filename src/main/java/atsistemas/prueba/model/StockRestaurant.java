@@ -1,5 +1,7 @@
 package atsistemas.prueba.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -14,8 +16,10 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"idRestaurant", "idProduct"}))
-public class StockRestaurant {
-	
+public class StockRestaurant  implements Serializable{
+
+	private static final long serialVersionUID = 1789177101733760860L;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	private String idRestaurant;
 	

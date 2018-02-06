@@ -1,5 +1,6 @@
 package atsistemas.prueba.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Employee {
-	
+public class Employee implements Serializable {
+
+	private static final long serialVersionUID = 1887844984928837480L;
+
 	@Id
 	@GeneratedValue
 	private String id;
