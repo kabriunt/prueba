@@ -27,7 +27,7 @@ public class Sale implements Serializable{
 
 	@Id
 	@GeneratedValue
-	private String id;
+	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date saledate;

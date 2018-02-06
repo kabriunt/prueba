@@ -5,6 +5,7 @@ spring:
       host: localhost
       port: 27017
       uri: mongodb://localhost/franchise
+  
    
 # HTTP Server
 server:

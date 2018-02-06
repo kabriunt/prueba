@@ -22,7 +22,7 @@ public class Provider implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private String id;
+	private Integer id;
 	
 	private String name,location,phone;
 	

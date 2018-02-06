@@ -23,7 +23,7 @@ public class Restaurant implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	private String id;
+	private Integer id;
 	private String location;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")

@@ -21,10 +21,10 @@ public class StockRestaurant  implements Serializable{
 	private static final long serialVersionUID = 1789177101733760860L;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	private String idRestaurant;
+	private Integer idRestaurant;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	private String idProduct;
+	private Integer idProduct;
 	
 	private Integer stock;
 	
