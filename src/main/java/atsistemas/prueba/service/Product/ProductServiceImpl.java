@@ -70,8 +70,8 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product map(ProductDto dto) {
 		final Product product;
-		final Provider provider = providerService.findById(dto.getIdProvider());
-		final Restaurant restaurant = restaurantService.findById(dto.getIdRestaurant());
+		final Provider provider = providerService.transform(providerService.findById(dto.getIdProvider()));
+		final Restaurant restaurant = restaurantService.transform(restaurantService.findById(dto.getIdRestaurant()));
 		if (dto.getIdProduct() != null && productDao.exists(dto.getIdProduct())){
 			product = productDao.findOne(dto.getIdProduct());
 		}else{
@@ -80,6 +80,7 @@ public class ProductServiceImpl implements ProductService{
 		product.setName(dto.getNameProduct());
 		product.setProvider(provider);
 		product.setRestaurant(restaurant);
+		return product;
 	}
 
 	@Override
