@@ -2,8 +2,13 @@ package atsistemas.prueba.service.Restaurant;
 
 import java.util.List;
 import atsistemas.prueba.dto.RestaurantDto;
+import atsistemas.prueba.model.Restaurant;
 
 public interface RestaurantService {
+	
+	Restaurant transform(RestaurantDto restaurantDto);
+	
+	RestaurantDto transform(Restaurant restaurant);
 	
 	List<RestaurantDto> findAll();
 	

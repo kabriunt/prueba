@@ -20,6 +20,7 @@ public class RestaurantServiceImpl implements RestaurantService{
 	@Autowired
 	private DozerBeanMapper mapper;
 	
+	@Override
 	public Restaurant transform (RestaurantDto r) {
 		Restaurant restaurant = restaurantDao.findOne(r.getId());
 		if(restaurant == null)
@@ -29,6 +30,7 @@ public class RestaurantServiceImpl implements RestaurantService{
 		return restaurant;
 	}
 	
+	@Override
 	public RestaurantDto transform(Restaurant r) {
 		return mapper.map(r,RestaurantDto.class);
 	}
