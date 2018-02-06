@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import atsistemas.prueba.dao.ProviderDao;
 import atsistemas.prueba.dto.ProviderDto;
@@ -34,8 +35,8 @@ public class ProviderServiceImpl implements ProviderService{
 	}
 	
 	@Override
-	public List<ProviderDto> findAll() {
-		Iterable<Provider> providers = providerDao.findAll();
+	public List<ProviderDto> findAll(Integer pages, Integer size) {
+		Iterable<Provider> providers = providerDao.findAll(new PageRequest(pages,size));
 		final List<ProviderDto> res = new ArrayList<>();
 		providers.forEach(x->{
 			res.add(transform(x));

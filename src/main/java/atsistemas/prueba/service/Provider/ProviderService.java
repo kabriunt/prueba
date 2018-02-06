@@ -11,7 +11,7 @@ public interface ProviderService {
 	
 	ProviderDto transform(Provider provider);
 	
-	List<ProviderDto> findAll();
+	List<ProviderDto> findAll(Integer pages, Integer size);
 	
 	ProviderDto findById(Integer id);
 	

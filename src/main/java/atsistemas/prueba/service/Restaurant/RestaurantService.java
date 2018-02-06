@@ -10,7 +10,7 @@ public interface RestaurantService {
 	
 	RestaurantDto transform(Restaurant restaurant);
 	
-	List<RestaurantDto> findAll();
+	List<RestaurantDto> findAll(Integer pages, Integer size);
 	
 	RestaurantDto findById(Integer id);
 	

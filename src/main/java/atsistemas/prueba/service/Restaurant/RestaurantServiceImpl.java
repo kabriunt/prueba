@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import atsistemas.prueba.dao.RestaurantDao;
@@ -36,8 +37,8 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 	
 	@Override
-	public List<RestaurantDto> findAll() {
-		Iterable<Restaurant> restaurants = restaurantDao.findAll();
+	public List<RestaurantDto> findAll(Integer pages, Integer size) {
+		Iterable<Restaurant> restaurants = restaurantDao.findAll(new PageRequest(pages,size));
 		final List<RestaurantDto> res = new ArrayList<>();
 		restaurants.forEach(x->{
 			res.add(transform(x));

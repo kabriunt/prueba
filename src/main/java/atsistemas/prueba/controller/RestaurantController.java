@@ -3,6 +3,8 @@ package atsistemas.prueba.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +24,12 @@ public class RestaurantController {
 	private RestaurantService restaurantService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<RestaurantDto> findAll(){
-		return restaurantService.findAll();
+	public List<RestaurantDto> getAll(@PageableDefault(page=0,size=10)Pageable pageable){
+		return restaurantService.findAll(pageable.getPageNumber(),pageable.getPageSize());
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public RestaurantDto findById(@PathVariable(value = "id") Integer id) {
+	public RestaurantDto getById(@PathVariable(value = "id") Integer id) {
 		return restaurantService.findById(id);
 	}
 	
