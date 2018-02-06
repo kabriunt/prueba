@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import atsistemas.prueba.dto.EmployeeDto;
-import atsistemas.prueba.dto.ProductDto;
 import atsistemas.prueba.service.Employee.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 
