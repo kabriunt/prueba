@@ -20,7 +20,10 @@ public class Restaurant{
 	@Id
 	@GeneratedValue
 	private Integer id;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/kabriunt/prueba.git
 	private String location;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
