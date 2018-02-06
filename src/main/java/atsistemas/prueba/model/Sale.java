@@ -16,18 +16,14 @@ import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
-
 @Getter
 @Setter
 @Entity
-public class Sale implements Serializable{
-
-	private static final long serialVersionUID = -5877884379801168189L;
+public class Sale{
 
 	@Id
 	@GeneratedValue
-	private String id;
+	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date saledate;
@@ -38,6 +34,6 @@ public class Sale implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Restaurant restaurant;
 	
-	@ManyToMany(fetch=FetchType.LAZY, mappedBy="sale")
+	@ManyToMany(fetch=FetchType.LAZY, mappedBy="sales")
 	private List<Product> products = new ArrayList<>();
 }

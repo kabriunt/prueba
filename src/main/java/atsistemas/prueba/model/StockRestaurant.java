@@ -1,9 +1,9 @@
 package atsistemas.prueba.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -15,16 +15,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"idRestaurant", "idProduct"}))
-public class StockRestaurant  implements Serializable{
-
-	private static final long serialVersionUID = 1789177101733760860L;
-
+public class StockRestaurant{
+	
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
 	@OneToOne(fetch = FetchType.LAZY)
-	private String idRestaurant;
+	private Restaurant idRestaurant;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	private String idProduct;
+	private Product idProduct;
 	
 	private Integer stock;
 	
