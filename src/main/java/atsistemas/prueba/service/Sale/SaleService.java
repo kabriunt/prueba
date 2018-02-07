@@ -11,7 +11,7 @@ public interface SaleService {
 	
 	public SaleDto map(Sale s);
 	
-	public List<SaleDto> findAll();
+	public List<SaleDto> findAll(Integer page, Integer size);
 	
 	public SaleDto findById(Integer id) /*throws NotFoundException*/;
 	

@@ -41,7 +41,7 @@ public class SaleServiceImpl implements SaleService {
 	}
 	
 	@Override
-	public List<SaleDto> findAll() {
+	public List<SaleDto> findAll(Integer page, Integer size) {
 		Iterable<Sale> sales = saleDao.findAll();
 		final List<SaleDto> res = new ArrayList<>();
 		sales.forEach(x->{
