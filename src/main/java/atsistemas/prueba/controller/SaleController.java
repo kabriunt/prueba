@@ -48,7 +48,7 @@ public class SaleController {
 	@RequestMapping(method = RequestMethod.PUT, value = "/{idSale}")
 	public void update(@PathVariable Integer idSale, @RequestBody SaleDto s) {
 		log.info("Modificando Venta = " + s);
-		saleService.update(s);
+		saleService.update(s); 
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{idSale}")
