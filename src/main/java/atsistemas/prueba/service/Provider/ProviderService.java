@@ -7,11 +7,11 @@ import atsistemas.prueba.model.Provider;
 
 public interface ProviderService {
 	
-	Provider transform(ProviderDto providerDto);
+	Provider map(ProviderDto providerDto);
 	
-	ProviderDto transform(Provider provider);
+	ProviderDto map(Provider provider);
 	
-	List<ProviderDto> findAll();
+	List<ProviderDto> findAll(Integer pages, Integer size);
 	
 	ProviderDto findById(Integer id);
 	

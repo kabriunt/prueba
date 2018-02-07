@@ -6,11 +6,11 @@ import atsistemas.prueba.model.Restaurant;
 
 public interface RestaurantService {
 	
-	Restaurant transform(RestaurantDto restaurantDto);
+	Restaurant map(RestaurantDto restaurantDto);
 	
-	RestaurantDto transform(Restaurant restaurant);
+	RestaurantDto map(Restaurant restaurant);
 	
-	List<RestaurantDto> findAll();
+	List<RestaurantDto> findAll(Integer pages, Integer size);
 	
 	RestaurantDto findById(Integer id);
 	

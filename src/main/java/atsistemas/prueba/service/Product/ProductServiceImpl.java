@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -15,10 +14,8 @@ import atsistemas.prueba.dto.ProductDto;
 import atsistemas.prueba.model.Product;
 import atsistemas.prueba.model.Provider;
 import atsistemas.prueba.model.Restaurant;
-import atsistemas.prueba.model.Sale;
 import atsistemas.prueba.service.Provider.ProviderService;
 import atsistemas.prueba.service.Restaurant.RestaurantService;
-import atsistemas.prueba.service.Sale.SaleService;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -70,8 +67,8 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product map(ProductDto dto) {
 		final Product product;
-		final Provider provider = providerService.transform(providerService.findById(dto.getIdProvider()));
-		final Restaurant restaurant = restaurantService.transform(restaurantService.findById(dto.getIdRestaurant()));
+		final Provider provider = providerService.map(providerService.findById(dto.getIdProvider()));
+		final Restaurant restaurant = restaurantService.map(restaurantService.findById(dto.getIdRestaurant()));
 		if (dto.getIdProduct() != null && productDao.exists(dto.getIdProduct())){
 			product = productDao.findOne(dto.getIdProduct());
 		}else{

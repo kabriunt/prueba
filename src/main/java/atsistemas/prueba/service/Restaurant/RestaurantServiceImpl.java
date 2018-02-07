@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import atsistemas.prueba.dao.RestaurantDao;
@@ -21,7 +22,7 @@ public class RestaurantServiceImpl implements RestaurantService{
 	private DozerBeanMapper mapper;
 	
 	@Override
-	public Restaurant transform (RestaurantDto r) {
+	public Restaurant map(RestaurantDto r) {
 		Restaurant restaurant = restaurantDao.findOne(r.getId());
 		if(restaurant == null)
 			restaurant = new Restaurant();
@@ -31,16 +32,16 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 	
 	@Override
-	public RestaurantDto transform(Restaurant r) {
+	public RestaurantDto map(Restaurant r) {
 		return mapper.map(r,RestaurantDto.class);
 	}
 	
 	@Override
-	public List<RestaurantDto> findAll() {
-		Iterable<Restaurant> restaurants = restaurantDao.findAll();
+	public List<RestaurantDto> findAll(Integer pages, Integer size) {
+		Iterable<Restaurant> restaurants = restaurantDao.findAll(new PageRequest(pages,size));
 		final List<RestaurantDto> res = new ArrayList<>();
 		restaurants.forEach(x->{
-			res.add(transform(x));
+			res.add(map(x));
 		});
 		return res;
 	}
@@ -48,17 +49,17 @@ public class RestaurantServiceImpl implements RestaurantService{
 	@Override
 	public RestaurantDto findById(Integer id) {
 		Restaurant restaurant = restaurantDao.findOne(id);
-		return transform(restaurant);
+		return map(restaurant);
 	}
 
 	@Override
 	public RestaurantDto create(RestaurantDto restaurantDto) {
-		return transform(restaurantDao.save(transform(restaurantDto)));
+		return map(restaurantDao.save(map(restaurantDto)));
 	}
 
 	@Override
 	public void update(RestaurantDto restaurantDto) {
-		restaurantDao.save(transform(restaurantDto));
+		restaurantDao.save(map(restaurantDto));
 	}
 
 	@Override
