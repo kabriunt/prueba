@@ -33,12 +33,6 @@ public class SaleController {
 		return saleService.findById(idSale);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/name={nameSale}")
-	public List<SaleDto> findByName(@PathVariable String nameSale){
-		log.info("Recuperando Ventas con nombre = " + nameSale);
-		return saleService.findByName(nameSale);
-	}
-	
 	@RequestMapping(method = RequestMethod.POST)
 	public SaleDto create(@RequestBody SaleDto s) {
 		log.info("Creando Venta = " + s);
@@ -54,6 +48,6 @@ public class SaleController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{idSale}")
 	public void delete(@PathVariable Integer idSale){
 		log.info("Borrando Saleo con Id = " + idSale);
-		SaleService.delete(idSale);
+		saleService.delete(idSale);
 	}
 }
