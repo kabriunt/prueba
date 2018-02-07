@@ -6,11 +6,13 @@ import java.util.List;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import atsistemas.prueba.dao.ProviderDao;
 import atsistemas.prueba.dto.ProviderDto;
 import atsistemas.prueba.model.Provider;
 
+@Service
 public class ProviderServiceImpl implements ProviderService{
 	
 	@Autowired
