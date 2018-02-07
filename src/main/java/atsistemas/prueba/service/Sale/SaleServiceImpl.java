@@ -35,6 +35,7 @@ public class SaleServiceImpl implements SaleService {
 		return sale;
 	}
 	
+	
 	@Override
 	public SaleDto map(Sale s) {
 		return mapper.map(s,SaleDto.class);
