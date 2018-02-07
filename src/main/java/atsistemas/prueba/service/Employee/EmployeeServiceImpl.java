@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			p = new Employee();
 		}
 //		u.setId(dto.getId()); el id no se pone para proteger el control
-		final Restaurant restaurant = restaurantService.transform(restaurantService.findById(dto.getRestaurant()));
+		final Restaurant restaurant = restaurantService.map(restaurantService.findById(dto.getRestaurant()));
 		p.setName(dto.getName());
 		p.setEmail(dto.getEmail());
 		p.setPhone(dto.getPhone());
